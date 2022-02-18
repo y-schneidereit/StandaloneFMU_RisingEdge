@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fmiModelDescription
+  fmiVersion="2.0"
+  modelName="RisingEdge"
+  guid="{d7bac2e2-f3c4-fc14-357b-41ecbe1c538d}"
+  description=""
+  generationTool="Simulink (R2021b)"
+  version="5.0"
+  variableNamingConvention="structured"
+  generationDateAndTime="2022-02-16T16:15:08Z"
+  numberOfEventIndicators="0">
+
+<CoSimulation
+  modelIdentifier="RisingEdge"
+  canBeInstantiatedOnlyOncePerProcess="true"
+  canNotUseMemoryManagementFunctions="true">
+   <SourceFiles>
+      <File name ="RisingEdge.c"/>
+      <File name ="RisingEdge_data.c"/>
+      <File name ="RTWCG_FMU_util.c"/>
+      <File name ="RisingEdge_fmu.c"/>
+   </SourceFiles>
+</CoSimulation>
+<DefaultExperiment startTime="0" stopTime="10" stepSize="0.5"/>
+<VendorAnnotations>
+  <Tool name="Simulink">
+    <Simulink>
+      <ImportCompatibility requireRelease="all" requireMATLABOnPath="no" />
+      <SimulinkModelInterface>
+        <Inport dataType="logical" portNumber="1" portName="u"/>
+        <Outport dataType="logical" portNumber="1" portName="T"/>
+      </SimulinkModelInterface>
+    </Simulink>
+  </Tool>
+</VendorAnnotations>
+<ModelVariables>
+  <ScalarVariable name="u" valueReference="0" description="u" causality="input" variability="discrete" >
+    <Boolean start="0"  />
+  </ScalarVariable> <!-- index="1" -->
+  <ScalarVariable name="T" valueReference="1" description="T" causality="output" variability="discrete" initial="calculated">
+    <Boolean  />
+  </ScalarVariable> <!-- index="2" -->
+  <ScalarVariable name="time" valueReference="0" description="time" causality="independent" variability="continuous" >
+    <Real  />
+  </ScalarVariable> <!-- index="3" -->
+</ModelVariables>
+<ModelStructure>
+  <Outputs>
+    <Unknown index="2" />
+  </Outputs>
+  <InitialUnknowns>
+    <Unknown index="2" />
+  </InitialUnknowns>
+</ModelStructure>
+</fmiModelDescription>
+
