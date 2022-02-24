@@ -8,7 +8,7 @@
 #include "fmi2Functions.h"
 
 // callback functions
-static void cb_logMessage(fmi2ComponentEnvironment componentEnvironment, fmi2String instanceName, fmi2Status status, fmi2String category, fmi2String message, ...) {
+static void cb_logMessage(fmi2ComponentEnvironment componentEnvironment, fmi2String instanceName, fmi2Status status, fmi2String category, fmi2String message) {
 	printf("%s\n", message);
 }
 
@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
 
 	fmi2CallbackFunctions callbacks = {cb_logMessage, cb_allocateMemory, cb_freeMemory, NULL, NULL};
 	
-	fmi2Component c = RisingEdge_fmi2Instantiate("instance1", fmi2CoSimulation, GUID, RESOURCE_LOCATION, &callbacks, fmi2False, fmi2False);
+	fmi2Component c = RisingEdge_fmi2Instantiate("instance1", fmi2CoSimulation, GUID, RESOURCE_LOCATION, &callbacks, fmi2True, fmi2False);
 	
 	if (!c) return 1;
 	
