@@ -17,7 +17,6 @@ add_executable(simulator
 target_include_directories(simulator PUBLIC
   include
   model/sources
-  model/binaries
 )
 
 if (MSVC)
